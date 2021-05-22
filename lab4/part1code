@@ -1,0 +1,12 @@
+package com.company;
+import java.io.File;
+public class Main {
+    public static void main(String[] args) {
+        File testFile = new File("/home/greaux/Рабочий стол/jbe/jbe.sh");
+        if (testFile.exists()) {
+            System.out.println("Чтение разрешено: " + testFile.canRead());
+            System.out.println("Изменение разрешено: " + testFile.canWrite());
+            System.out.println("Запуск разрешен: " + testFile.canExecute());
+        }
+    }
+}
