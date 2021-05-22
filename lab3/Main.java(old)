@@ -1,0 +1,75 @@
+package com.company;
+public class Main {
+    static int test1 = 10;
+    static int test2 = 20;
+    static String test3 = "jbe";
+    public static void main(String[] args) {
+        example_math(test1, test2);
+    }
+    public void Test() {}
+    public static void exampleIO() {System.out.println("ПРИМЕР");}
+    public static void prim_int() {
+        int prim;
+        prim = 15;
+        System.out.println();
+    }
+    public static void prim_str() {
+        String prim;
+        prim = "Тест";
+        int prim2;
+        System.out.println();
+    }
+    public static void prim_bool() {boolean prim = true;}
+    public static void example_if() {
+        int prim1 = 1;
+        int prim2 = 2;
+    if(prim2>prim1) {
+        prim1++;
+        System.out.println("done");
+    }
+    }
+    public static void example_while() {
+        String prim1 = "test";
+        int prim2 = 2;
+        int prim3 = 5;
+    while(prim2<prim3) {
+        prim2++;
+        System.out.println(prim2);
+    }}
+    public static void example_param(String a, String b) {
+        System.out.println(a);
+        System.out.println(b);
+        while(a.length()>b.length()) {
+            System.out.println("a>b");
+            a = a.substring(1);
+        }
+    }
+    public static void example_math(int a, int b) {
+        int c;
+        int test;
+        test = test1;
+        c = a + b;
+        System.out.println(c);
+    }
+    public static void example_math2(int a, int b) {
+        int c;
+        int w=1200;
+        c = a * b;
+        System.out.println(c);
+    }
+    public static void well_if() {
+        int a = 15;
+        int b = 1;
+        int c = 21;
+        String test = "example";
+        if(a>b) {
+            if(b<c) {
+                if(c>a) {
+                    b++;
+                }
+            }
+        } else {
+            System.out.println("Good");
+        }
+    }
+}
