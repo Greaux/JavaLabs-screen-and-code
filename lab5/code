@@ -1,0 +1,23 @@
+package com.company;
+
+import java.io.FilePermission;
+import java.io.IOException;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+
+        FilePermission fp = null;
+        try{
+
+            fp=new FilePermission("/home/greaux/IdeaProjects/lab5/src/TextFile.txt", "read, write") ;
+
+            String s = fp.getActions() ;
+            System.out.print("Action: "+s) ;
+
+        }catch(Exception ex) {
+
+            ex.printStackTrace() ;
+        }
+    }
+}
