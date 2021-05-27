@@ -1,0 +1,55 @@
+package com.company;
+
+import java.io.*;
+import net.lingala.zip4j.ZipFile;
+
+public class Main
+{
+    public Main() {
+        try (FileReader reader = new FileReader("passes.txt")) {
+            BufferedReader in = new BufferedReader(reader);
+            String s = "";
+
+            while (s != null) {
+
+                s = in.readLine();
+                try {
+                    ZipFile zipFile = new ZipFile("ayyylmao.zip");
+                    zipFile.setPassword(s.toCharArray());
+                    String st = "NNN";
+                    zipFile.extractAll(st);
+                    System.out.println("Пароль: " + s + " ПОДОШЁЛ");
+                    break;
+                } catch (Exception e) {
+                    System.out.println("Пароль: " + s + " НЕ ПОДОШЕЛ");
+                }
+            }
+
+            File file = new File("otvet.txt");
+            FileWriter fr = null;
+
+
+            try {
+                fr = new FileWriter(file, true);
+                assert s != null;
+                fr.write(s + System.getProperty("line.separator"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    assert fr != null;
+                    fr.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        new Main();
+    }
+}
