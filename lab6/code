@@ -70,15 +70,13 @@ public class Main {
         }
     }
 
-    public static class JAASFrame extends JFrame
-    {
+    public static class JAASFrame extends JFrame {
         private JTextField username;
         private JPasswordField password;
         private JTextField propertyName;
         private JTextField propertyValue;
 
-        public JAASFrame()
-        {
+        public JAASFrame() {
             username = new JTextField(20);
             password = new JPasswordField(20);
             propertyName = new JTextField("user.home");
@@ -103,11 +101,9 @@ public class Main {
             pack();
         }
 
-        public void getValue()
-        {
+        public void getValue() {
 
-            try
-            {
+            try {
                 LoginContext context = new LoginContext("Login", new SimpleCallbackHandler(
                         username.getText(), password.getPassword()));
                 System.out.println("Trying to log in with " + username.getText() + " and " + new String(password.getPassword()));
@@ -116,9 +112,7 @@ public class Main {
                 propertyValue.setText(""
                         + Subject.doAsPrivileged(subject, new SysPropAction(propertyName.getText()), null));
                 context.logout();
-            }
-            catch (LoginException ex)
-            {
+            } catch (LoginException ex) {
                 ex.printStackTrace();
                 Throwable ex2 = ex.getCause();
                 if (ex2 != null) ex2.printStackTrace();
@@ -126,27 +120,23 @@ public class Main {
         }
     }
 
-    public static class SysPropAction implements PrivilegedAction<String>
-    {
-        public SysPropAction(String propertyName) { this.propertyName = propertyName; }
+    public static class SysPropAction implements PrivilegedAction<String> {
+        public SysPropAction(String propertyName) {
+            this.propertyName = propertyName;
+        }
 
-        public String run()
-        {
+        public String run() {
             return System.getProperty(propertyName);
         }
 
         private String propertyName;
     }
 
+    public static void main(String[] args) {
 
-
-
-    public static void Main(String[] args) {
-
-        new JAASFrame();
-
-
+        JAASFrame frame = new JAASFrame();
+        frame.setVisible(true);
+        
     }
-
 }
- 
+
